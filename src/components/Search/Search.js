@@ -50,8 +50,6 @@ import './search.css';
 
         this.props.history.push(`/currency/${currencyId}`);
      }
-
-
      renderSearchResult() {
          const {searchResult, searchQuery,loading} = this.state;
 

@@ -17,6 +17,16 @@ import './Detail.css';
  
     componentDidMount(){
         const currencyId = this.props.match.params.id;
+        this.fetchCurrency(currencyId);
+    }
+    componentWillReceiveProps(nextProps) {
+        if(this.props.location.pathname !== nextProps.location.pathname){
+      
+            const newCurrencyId = nextProps.match.params.id;      
+        this.fetchCurrency(newCurrencyId);
+        }
+    }
+    fetchCurrency(currencyId) {
        
         this.setState({loading: true});
 
@@ -39,7 +49,6 @@ import './Detail.css';
  
  
  
- 
     render() {
 
         const { Loading,error,currency } = this.state;
@@ -51,6 +60,7 @@ import './Detail.css';
         }
 
     return (
+
       <div className="Detail"> 
       <h1 className="Detail-heading">
         {currency.name} ({currency.symbol})
